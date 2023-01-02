@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Resume</title>
+
+    <!--bootstrap css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <!--custom css-->
+    <link rel="stylesheet" href="style.css">
+    <!--vue js link-->
+    <script src="https://unpkg.com/vue@3.2.36/dist/vue.global.js"></script>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#pb-navbar" data-bs-offset="150" >
+    <!--navigation star-->
+    <nav class="navbar navbar-expand-md site-navbar navbar-light bg-light fixed-top py-4" id="pb-navbar" >
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbars"
+            aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-md-center" id="navbars">
+                <ul class="navbar-nav" id="navbar-nav">
+                    <li class="nav-item mx-3"><a class="nav-link" href="#section-home">Home</a></li>
+                    <li class="nav-item mx-3"><a class="nav-link" href="#section-portfolio">Portfolio</a></li>
+                    <li class="nav-item mx-3"><a class="nav-link" href="#section-resume">Resume</a></li>
+                    <li class="nav-item mx-3"><a class="nav-link" href="#section-about">About</a></li>
+                    <li class="nav-item mx-3"><a class="nav-link" href="#section-contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--navigation end-->
+    <!--home section star-->
+    <section class="section-home align-items-center d-flex" id="section-home" >
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="contents col-md-10 text-center mt-5">
+                    <h1 class="site-heading site-animate text-white fw-normal">Hello, I'm <strong class="d-block  fw-bold">Foysal Ahmed</strong>
+                    </h1>
+                    <strong class="d-block text-uppercase">and this is My Rezume</strong>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--home section end-->
+    <!--protfolio section star-->
+    <section class="section-portfolio" id="section-portfolio">
+        <div class="container reveal" id="app">
+            <div class="row mb-3">
+                <div class="section-heading text-center col-md-12">
+                    <h2 class="fw-normal text-white">Featured <strong>Portfolio </strong></h2>
+                </div>
+            </div>
+            <p class="underline m-auto mb-5"></p>
+            <div class="filters row text-center ">
+                <ul class="d-flex justify-content-center">
+                    <li :class="{active: activeClass == 'all'}" @click="setClass('all')">All</li>
+                    <li :class="{active: activeClass == 'Travel'}" @click="setClass('Travel')" > Travel</li>
+                    <li :class="{active: activeClass == 'Business'}" @click="setClass('Business')">Business</li>
+                    <li :class="{active: activeClass == 'Service'}" @click="setClass('Service')">Service</li>
+                    <li :class="{active: activeClass == 'Portfolio'}" @click="setClass('Portfolio')">Portfolio</li>
+                </ul>
+            </div>
+            <div class="filters-content">
+                <div class="row grid">
+                    <div class="single-portfolio  col-md-6 col-lg-4 Business" :class="{'show': activeClass == 'Business', 'show-all': activeClass == 'all'}">
+                        <div class="relative">
+                            <div class="image-bx">
+                                <a href="https://min-ahmed.github.io/businesswebsite/"><img class="image img-fluid" src="images/xwork_1.jpg" alt=""></a>  
+                            </div>
+                        </div>
+                        <div class="p-inner">
+                            <h4> Statap business website</h4>
+                            <div class="cat">Business</div>
+                        </div>
+                    </div>
+                    <div class="single-portfolio col-md-6 col-lg-4 Business"  :class="{'show': activeClass == 'Business', 'show-all': activeClass == 'all'}" >
+                        <div class="relative">
+                            <div class="image-bx">
+                                <a href="#"><img class="image img-fluid" src="images/xwork_2.jpg" alt=""></a> 
+                            </div>
+                        </div>
+                        <div class="p-inner">
+                            <h4>Animal business</h4>
+                            <div class="cat">Business</div>
+                        </div>
+                    </div>
+                    <div class="single-portfolio col-md-6 col-lg-4 Travel"  :class="{'show': activeClass == 'Travel', 'show-all': activeClass == 'all'}">
+                        <div class="relative">
+                            <div class="image-bx">
+                                <a href="#"><img class="image img-fluid" src="images/xwork_3.jpg" alt=""></a> 
+                            </div>
+                        </div>
+                        <div class="p-inner">
+                            <h4>Traveling site</h4>
+                            <div class="cat">Travel</div>
+                        </div>
+                    </div>
+                    <div class="single-portfolio col-md-6 col-lg-4 Service"  :class="{'show': activeClass == 'Service', 'show-all': activeClass == 'all'}">
+                        <div class="relative">
+                            <div class="image-bx">
+                                <a href="#"><img class="image img-fluid" src="images/xwork_4.jpg" alt=""></a> 
+                            </div>
+                        </div>
+                        <div class="p-inner">
+                            <h4>Packaging Brand</h4>
+                            <div class="cat">Service</div>
+                        </div>
+                    </div>
+                    <div class="single-portfolio col-md-6 col-lg-4 Service"  :class="{'show': activeClass == 'Portfolio', 'show-all': activeClass == 'all'}">
+                        <div class="relative">
+                            <div class="image-bx">
+                                <a href="#"><img class="image img-fluid" src="images/xwork_5.jpg" alt=""></a> 
+                            </div>
+                        </div>
+                        <div class="p-inner">
+                            <h4>Parsonal service webside</h4>
+                            <div class="cat">Portfolio</div>
+                        </div>
+                    </div>
+                    <div class="single-portfolio col-md-6 col-lg-4 Service"  :class="{'show': activeClass == 'Service', 'show-all': activeClass == 'all'}">
+                        <div class="relative">
+                            <div class="image-bx">
+                                <a href="#"><img class="image img-fluid" src="images/xwork_6.jpg" alt=""></a> 
+                            </div>
+                        </div>
+                        <div class="p-inner">
+                            <h4>home Service</h4>
+                            <div class="cat">Service</div>
+                        </div>
+                    </div>
+
+                    <div class="single-portfolio col-md-6 col-lg-4 Travel"  :class="{'show': activeClass == 'Travel', 'show-all': activeClass == 'all'}">
+                        <div class="relative">
+                            <div class="image-bx">
+                                <a href="#"><img class="image img-fluid" src="images/xwork_7.jpg" alt=""></a> 
+                            </div>
+                        </div>
+                        <div class="p-inner">
+                            <h4> Travel website</h4>
+                            <div class="cat">Travel</div>
+                        </div>
+                    </div>
+
+                    <div class="single-portfolio col-md-6 col-lg-4 Arts"  :class="{'show': activeClass == 'Portfolio', 'show-all': activeClass == 'all'}">
+                        <div class="relative">
+                            <div class="image-bx">
+                                <a href="#"><img class="image img-fluid" src="images/xwork_8.jpg" alt=""></a> 
+                            </div>
+                        </div>
+                        <div class="p-inner">
+                            <h4> Artists Website</h4>
+                            <div class="cat">Artist</div>
+                        </div>
+                    </div>
+
+                    <div class="single-portfolio col-md-6 col-lg-4 Business"  :class="{'show': activeClass == 'Business', 'show-all': activeClass == 'all'}">
+                        <div class="relative">
+                            <div class="image-bx">
+                                <a href="#"><img class="image img-fluid" src="images/xwork_9.jpg" alt=""></a> 
+                            </div>
+                        </div>
+                        <div class="p-inner">
+                            <h4>Maltinational company website</h4>
+                            <div class="cat">Business</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--protfolio section end-->
+
+    <!--resume section star-->
+    <section class="section-resume" id="section-resume">
+        <div class="container reveal">
+            <div class="row">
+                <div class="col-md-12 mb-5">
+                    <div class="section-heading text-center">
+                        <h2>My <strong>Resume</strong></h2>
+                    </div>
+                    <p class="underline m-auto mb-5"></p>
+                </div>
+                <div class="col-md-6 " >
+                    <h2 class="mb-5">Education</h2>
+                    <div class="resume-item mb-4">
+                        <span class="date"><span class="icon-calendar"><i class="bi bi-calendar-week"></i> </span> Jan 2019 - Present</span>
+                        <h3>Bachelor of Arts</h3>
+                        <p>
+                            I'm Currently Studying In BA Second Year.
+                            And my first year reselt was - 2.61 (Promoted).
+                        </p>
+                        <span class="school">Demra Univercity College</span>
+                    </div>
+                    <div class="resume-item mb-4">
+                        <span class="date"><span class="icon-calendar"><i class="bi bi-calendar-week"></i> </span> 2016 - 2018.</span>
+                        <h3>Higher Secondary Certificate</h3>
+                        <p>Major Subject was Humanities. <br>
+                            Result- 3.50</p>
+                        <span class="school"> City International School and Collage</span>
+                    </div>
+                    <div class="resume-item mb-4">
+                        <span class="date"><span class="icon-calendar"><i class="bi bi-calendar-week"></i> </span> 2014 - 2016</span>
+                        <h3>Secondary School Certificate</h3>
+                        <p> Major Subject was Commers <br>
+                            Result- 2.33</p>
+                        <span class="school">New York University</span>
+                    </div>
+                </div>
+                <div class="col-md-6 ">
+                    <h2 class="mb-5">Experience</h2>
+                    <div class="resume-item mb-4">
+                        <span class="date"><span class="icon-calendar"><i class="bi bi-calendar-week"></i> </span> Present</span>
+                        <h3>Front-End Web Developer</h3>
+                        <p> Creating Responsive Front-end Website with HTML, CSS, Js, Bootstarp, Vue Js , ect.</p>
+                        <span class="school">Self Create</span>
+                    </div>
+
+                    <div class="resume-item mb-4">
+                        <span class="date"><span class="icon-calendar"><i class="bi bi-calendar-week"></i> </span> Jan 2022 - Present</span>
+                        <h3>Territory Sales Officer</h3>
+                        <p>
+                            -Provide broadband internet service Product. <br>
+                            -Sales and Sales Marketing. <br>
+                            -Perform all duties associated with territory sales.
+                        </p>
+                        <span class="Work-Place">SSD-TECK (Carnival Internet) </span>
+                    </div>
+
+                    <div class="resume-item mb-4">
+                        <span class="date"><span class="icon-calendar"><i class="bi bi-calendar-week"></i> </span> 2019 - 2021</span>
+                        <h3>Event Management</h3>
+                        <p> Promotional Marketing. <br>
+                            Event Arrangement
+                        </p>
+                        <span class="Work-Place">Lots of Event Company</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--resume section end-->
+
+    <!--skills sections start-->
+    <section class="section-skills">
+        <div class="container reveal">
+            <div class="col-md-12 mb-5">
+                <div class="section-heading text-center">
+                    <h2>My <strong>skills</strong></h2>
+                </div>
+                <p class="underline m-auto mb-5"></p>
+            </div>
+
+            <h3>html</h3>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 81%" aria-valuenow="81" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <br>
+              <h3>css</h3>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <br>
+              <h3>javaScript</h3>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 47%" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <br>
+              <h3>Bootstarp</h3>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <br>
+              <h3>vue js</h3>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 37%" aria-valuenow="37" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <br>
+              <h3>photoshop</h3>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 57%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+        </div>
+    </section>
+    <!--skills sections end-->
+
+    <!--about section star-->
+    <section class="section-about" id="section-about">
+        <div class="container reveal">
+            <div class="row mb-5 align-items-center about-bx">
+                <div class="col-lg-7 pr-lg-5 mb-5 mb-lg-0">
+                    <img src="images/min-image-2.jpg" alt="Image placeholder"
+                        class="img-fluid">
+                </div>
+                <div class="col-lg-5">
+                    <div class="section-heading">
+                        <h2>About <strong>Me</strong></h2>
+                    </div>
+                    <p class="lead mt-5">
+                        I'm Intern Front-End Web Developer. <br> <br>
+                        I can 
+                        create Responsive Front-Side by HTML, CSS, javaScript, 
+                        Bootstrap. I also have some knowledge of Vue.js. And I have 
+                        experience doing many such things. Can complete PSD To HTML And Js
+                        project pixel perfectly.
+                    </p> <br>
+                    <p class="mb-5  ">
+                        I'm very dedicated to my work. <br>
+                        I like to complete projects quickly and strives to complete them accuratly and attractively.
+                        Also I'm very Interested in challenging work.
+                    </p>
+                    <br>
+                    <p>
+                        <a href="#section-contact" class="btn btn-primary px-4 py-2 btn-sm smoothscroll text-uppercase fw-bold">Hire Me</a>
+                        <a href="#" class="btn btn-secondary px-4 py-2 btn-sm">Download CV</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--about section end-->
+
+    <!--Testimonial section star-->
+    <section class="section-testimonial" id="app-1" >
+        <div class="container reveal">
+            <div class="row mb-5">
+                <div class="col-md-12">
+                    <div class="section-heading text-center">
+                        <h2>Client <strong>Testimonial</strong></h2>
+                    </div>
+                    <p class="underline m-auto mb-5"></p>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6 d-flex mb-5 block-singel-bx" v-for="comment in commentDocuments">    
+                    <div class="block-image">
+                        <img :src="comment.pesonPhoto" alt="" class="img-fluid">
+                    </div>
+                    <div  class="blockquote" >
+                        <p > " {{comment.personCommenst}} " </p>
+                        <cite > - {{comment.personName}} <a href="#">XYZ Inc.</a></cite>
+
+
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+            <div class="accordion" id="accordionCommentBox">
+                <div class="accordion-item">
+                  <h1 class="accordion-header accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#commentFrom" aria-expanded="false" id="flush-headingOne">
+                      Shere Your Experience... <i class="bi bi-chat-dots"></i>
+                  </h1>
+                  <div id="commentFrom" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionCommentBox">
+                    <div class="accordion-body">
+                        <form action="" class="site-form" @submit.prevent="addComment()">
+                            <br>
+                            <div class="form-group">
+                                <input type="text" class="form-control px-3 py-4" placeholder="Your Name" v-model="newDocuments.personName" required>
+                            </div>
+                            <br>
+                            <div class="form-group mb-5">
+                                <textarea class="form-control px-3 py-4" cols="30" rows="10"placeholder="Your Openions" v-model="newDocuments.personCommenst" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary  px-4 py-3" value="Send Openions"  >
+                            </div>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Testimonial section star-->
+
+    <!--services section star-->
+    <section class="section-services pb-0" id="section-services">
+        <div class="container reveal">
+            <div class="row mb-4">
+                <div class="col-md-12 mb-5">
+                    <div class="section-heading text-center">
+                        <h2>My <strong>Services</strong></h2>
+                    </div>
+                    <p class="underline m-auto mb-5"></p>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-md-6 col-lg-4 text-center mb-5 ">
+                    <div class="single-service-bx">
+                        <span class="icon">
+                            <span class="icon"><i class="bi bi-layout-text-window-reverse"></i> </span>
+                        </span>
+                        <h3 class="mb-4 mt-5">Web Design</h3>
+                        <p>Duda Certified Website Designer on the Duda Website Builder platform for creating, designing and maintaining fully-responsive. 
+                            I offer excellent value for small businesses and start-ups on new sites and migrations.
+                           Graphic Design specialization includes branding, visual standards and logo/identity work as well as brochures, catalogs and publications.</p>
+                        <p><a href="#" class="site-link">Learn More <i class="bi bi-chevron-right"></i></a></p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 text-center mb-5 ">
+                    <div class="single-service-bx">
+                        <span class="icon">
+                            <span class="icon"> <i class="bi bi-laptop"></i></span>
+                        </span>
+                        <h3 class="mb-4 mt-5">Front-end web developing</h3>
+                        <p>I’m a front-end Developer. I can build adaptive and high-quality layouts on your design or adapt the website to your corporate identity. I can also create any custom development, complex logic or other tasks related to the frontend. I have a perfect understanding of how JavaScript, HTML and CSS work, and have a lot of experience working with all of them. If you want to build a really high-quality website and need help doing so, contact me
+                            </p>
+                        <p><a href="#" class="site-link">Learn More <i class="bi bi-chevron-right"></i></a></p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 text-center mb-5 ">
+                    <div class="single-service-bx">
+                        <span class="icon ">
+                            <span class="icon mb-5"><i class="bi bi-puzzle-fill"></i></span>
+                        </span>
+                        <h3 class="mb-4 mt-5 ">Problem solutions</h3>
+                        <p>I specialise in web-based enterprise solutions, such as planning tools, calendars, task trackers, project management boards, visualising data, and others. My domain is frontend development, though I have strong understanding of backend development and database solutions.
+                            I have experience working with vanilla Javascript as well as modern libs and frameworks such as Vue.js.</p>
+                        <p><a href="#" class="site-link">Learn More <i class="bi bi-chevron-right"></i></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--services section end-->
+
+    <!--blog section star-->
+    <section class="section-blog" id="section-blog">
+        <div class="container reveal">
+            <div class="row">
+                <div class="col-md-12 mb-5">
+                    <div class="section-heading text-center">
+                        <h2>Blog on <strong>Medium</strong></h2>
+                    </div>
+                    <p class="underline m-auto mb-2"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-lg-4 mb-4">
+                    <div class="blog-entry">
+                        <a href="#"><img src="images/xpost_1.jpg" alt="Image placeholder" class="img-fluid"></a>
+                        <div class="blog-entry-text">
+                            <h3><a href="#">Creative Web Designer From Facebook</a></h3>
+                            <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an
+                                almost unorthographic.</p>
+                            <div class="meta">
+                                <a href="#"><span class="icon"><i class="bi bi-calendar-week-fill"></i></span> Aug 7, 2018</a>
+                                <a href="#"><span class="icon"><i class="bi bi-chat-dots"></i></span> 5 Comments</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 mb-4">
+                    <div class="blog-entry">
+                        <a href="#"><img src="images/xpost_2.jpg" alt="Image placeholder" class="img-fluid"></a>
+                        <div class="blog-entry-text">
+                            <h3><a href="#">Fron End web developer From Facebook</a></h3>
+                            <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an
+                                almost unorthographic.</p>
+                            <div class="meta">
+                                <a href="#"><span class="icon"><i class="bi bi-calendar-week-fill"></i></span> Aug 7, 2018</a>
+                                <a href="#"><span class="icon"><i class="bi bi-chat-dots"></i></span> 5 Comments</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4 mb-4">
+                    <div class="blog-entry">
+                        <a href="#"><img src="images/xpost_3.jpg" alt="Image placeholder" class="img-fluid"></a>
+                        <div class="blog-entry-text">
+                            <h3><a href="#">Programming Problem Solutions</a></h3>
+                            <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an
+                                almost unorthographic.</p>
+                            <div class="meta">
+                                <a href="#"><span class="icon"><i class="bi bi-calendar-week-fill"></i></span> Aug 7, 2018</a>
+                                <a href="#"><span class="icon"><i class="bi bi-chat-dots"></i></span> 5 Comments</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--blog section end-->
+
+    <!--contact section star-->
+    <section class="site-section" id="section-contact">
+        <div class="container reveal">
+            <div class="row">
+                <div class="col-md-12 mb-5">
+                    <div class="section-heading text-center">
+                        <h2>Get <strong>In Touch</strong></h2>
+                    </div>
+                    <p class="underline m-auto mb-2"></p>
+                </div>
+                <div class="col-md-7 mb-5 mb-md-0" id="app-2">
+                    <form action="" class="site-form" @submit="validation">
+                        <h3 class="mb-5">Get In Touch</h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control p-3" placeholder="Your Name" v-model="name">
+                            <div class="warningName"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control p-3 " placeholder="Your Email" v-model="email" >
+                            <div class="warningEmail"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control p-3 " placeholder="Your Phone" v-model="phone">
+                            <div class="warningNum"></div>
+                        </div>
+                        <div class="form-group mb-5">
+                            <textarea class="form-control px-3 py-4" cols="30" rows="10"
+                                placeholder="Write a Message"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary  px-4 py-3" value="Send Message">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-5 ps-4">
+                    <h3 class="mb-5 ms-4">My Contact Details</h3>
+                    <ul class="site-contact-details">
+                        <li>
+                            <span class="text-uppercase">Email</span>
+                            <a href="#" >ahamedfoysal019@gmail.com</a>
+                        </li>
+                        <li>
+                            <span class="text-uppercase">Phone</span>
+                            +880 1950601811
+                            <br>
+                            +880 1627671975
+                        </li>
+                        
+                        <li>
+                            <span class="text-uppercase">Address</span>
+                            Permanent: <br>
+                            Prodan bhari,Shatnol, 3646, 
+                            Matlab(North), Chandpur.
+                            <br>
+                            <br>
+                            Present: <br>
+                            71/18, West Sanarpar, Demra, 
+                            Dhaka
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--contact section end-->
+
+    <!--Footer section star-->
+    <footer class="site-footer ">
+        <div class="container">
+            <div class="row mb-5">
+                
+            </div>
+            <div class="row mb-5">
+                <div class="col-md-12 text-center mb-4">
+                    <div>© Copyrigth 2022 themelazer. info All rights reserved.</div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <p>
+                        <a href="#" class="social-item align-items-center"><span class="icon-facebook"><i class="bi bi-facebook"></i></span></a>
+                        <a href="#" class="social-item"><span class="icon-twitter"><i class="bi bi-twitter"></i></span></a>
+                        <a href="#" class="social-item"><span class="icon-instagram"><i class="bi bi-instagram"></i></span></a>
+                        <a href="#" class="social-item"><span class="icon-linkedin"><i class="bi bi-linkedin"></i></span></a>
+                        <a href="#" class="social-item"><span class="icon-vimeo"><i class="bi bi-vimeo"></i></span></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Footer section end-->
+
+
+
+
+    <!--bootstarp js-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+    <!--custom js-->
+    <script src="custom.js"></script>
+
+    
+
+</body>
+
+</html>
