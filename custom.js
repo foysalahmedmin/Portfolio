@@ -24,7 +24,7 @@ function contentMove(){
 
        var windowheight = this.window.innerHeight;
        var revealtop = reveals[i].getBoundingClientRect().top;
-       var revealpoint = 150;
+       var revealpoint = 90;
 
        if(revealtop < windowheight - revealpoint){
 
